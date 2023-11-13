@@ -1,0 +1,98 @@
+<p>loginform works!</p>
+
+<div class="container-fluid d-flex justify-content-center align-items-center bg-dark text-light vh-100">
+    <div class="backg pt-5 ps-4 pe-4 pb-5 text-center w-50 mt-5 rounded">
+        <p class="display-4 text-light">Log In</p>
+        <form [formGroup]="fg" class="mt-5 ms-4 me-4 text-start">
+
+            <!-- Role -->
+            <div class="mt-5">
+                <!-- <select name="role" id="">
+                    <option value="">---- Select Option ----</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Company">Company</option>
+                    <option value="Superior">Superior</option>
+                    <option value="Supervisor">Supervisor</option>
+                </select> -->
+                <h4>Basic Role select</h4>
+                <mat-form-field style="width: 42vw">
+                <mat-label>Select Role</mat-label>
+                <mat-select matNativeControl required  formControlName="role">
+                    <mat-option value="Admin">Admin</mat-option>
+                    <mat-option value="Company">Company</mat-option>
+                    <mat-option value="Superior">Superior</mat-option>
+                    <mat-option value="Supervisor">Supervisor</mat-option>
+                </mat-select>
+                </mat-form-field>
+            </div>
+            <!-- Admin -->
+            <div *ngIf="isAdmin" class="mt-2">
+                <h4>Enter Admin ID</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Admin ID</mat-label>
+                    <input type="text" matInput formControlName="adminId">
+                </mat-form-field>
+            </div>
+            <!-- EmployeeID -->
+            <div *ngIf="isCompany || isSuperior || isSupervisor" class="mt-2">
+                <h4>Enter Company ID</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Company ID</mat-label>
+                    <input type="text" matInput formControlName="companyId">
+                </mat-form-field>
+            </div>
+
+            <!-- SuperiorID -->
+            
+            <div *ngIf="isSuperior || isSupervisor" class="mt-2">
+                <h4>Enter Superior ID</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Superior ID</mat-label>
+                    <input type="text" matInput formControlName="superiorId">
+                </mat-form-field>
+            </div>
+
+            <!-- SuperiorID -->
+            
+            <div *ngIf="isSupervisor" class="mt-2">
+                <h4>Enter Supervisor ID</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Supervisor ID</mat-label>
+                    <input type="text" matInput formControlName="supervisorId">
+                </mat-form-field>
+            </div>
+
+            <!-- Password -->
+            
+            <div class="mt-2">
+                <h4>Enter Password</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput formControlName="password">
+                </mat-form-field>
+            </div>
+
+            <!-- <div class="mt-5 mb-4">
+                <label for="uname" class="h4">CompanyID</label>
+                <input type="text" name="uname"  formControlName="userName" class="form-control">
+                <div style="color: red;" *ngIf="fg.get('userName')?.dirty && fg.get('userName')?.errors?.['minlength']">Username Invalid [Min. Length = 4]</div>
+                <div style="color: red;" *ngIf="fg.get('userName')?.dirty && fg.get('userName')?.errors?.['maxlength']">Username Invalid [Max Length = 15]</div>
+            </div> -->
+    
+
+            <!-- <div class="mb-4">
+                <label for="pwd" class="h4">Password</label>
+                <input type="password" formControlName="password" name="pwd" class="form-control">
+                <div style="color: red;" *ngIf="fg.get('password')?.dirty && fg.get('password')?.errors?.['minlength']">Password Invalid [Min. 8 character required]</div>
+            </div> -->
+    
+            <div class="">
+                <a class="lead" routerLink="/signUp" style="text-decoration: none;">Create New Account?</a>
+            </div>
+
+            <div class="submit text-center mt-5 pt-5">
+                <input type="button" value="Log In" [disabled]="fg.invalid" class="btn btn-light btn-xxl" (click) = "onSubmit($event)">
+            </div>
+        </form>
+    </div>
+</div>
