@@ -8,13 +8,15 @@ import { LoginformComponent } from './components/loginform/loginform.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../modules/material/material.module'
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { QCReportComponent } from './components/qcreport/qcreport.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    LoginformComponent
+    LoginformComponent,
+    QCReportComponent
   ],
   imports: [
     BrowserModule,

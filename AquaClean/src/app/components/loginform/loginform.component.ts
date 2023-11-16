@@ -9,11 +9,6 @@ import { IUser } from 'src/interfaces/IUser';
 import { ISuperior } from 'src/interfaces/ISuperior';
 import { ISupervisor } from 'src/interfaces/ISupervisor';
 
-interface Food {
-  value: string;
-  viewValue: string;
-}
-
 @Component({
   selector: 'app-loginform',
   templateUrl: './loginform.component.html',

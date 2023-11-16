@@ -1,0 +1,146 @@
+<p>qcreport works!</p>
+
+
+
+<div class="container-fluid d-flex justify-content-center align-items-center bg-dark text-light">
+    <div class="backg pt-5 ps-4 pe-4 pb-5 text-center w-50 mt-5 rounded">
+        <p class="display-4 text-light">Quality Check Report Filling</p>
+        <form [formGroup]="fg" class="mt-5 ms-4 me-4 text-start">
+
+            <p class="mt-5 lead fw-bold">PLANT DETAILS</p>
+
+            <!-- Plant Visit ID -->
+            <div class="mt-5">
+                <h4>Plant Visit ID</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Unique Plant Visit ID</mat-label>
+                    <input type="text" matInput formControlName="plantVisitId">
+                </mat-form-field>
+            </div>
+             <!-- Plant Name -->
+             <div class="mt-5">
+                <h4>Plant Name</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Listed Plant Name</mat-label>
+                    <input type="text" matInput formControlName="plantName">
+                </mat-form-field>
+            </div>
+            <!-- Plant ID -->
+            <div class="mt-2">
+                <h4>Plant ID</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Unique Plant ID</mat-label>
+                    <input type="text" matInput formControlName="plantId">
+                </mat-form-field>
+            </div>
+            <!-- Supervisor ID -->
+            <div class="mt-2">
+                <h4>Supervisor ID</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Employee ID of Plant Supervisor</mat-label>
+                    <input type="number" matInput formControlName="supervisorId">
+                </mat-form-field>
+            </div>
+            
+            <p class="mt-5 lead fw-bold">PHYSICAL PARAMETERS</p>
+
+            <!-- Turbidity -->
+            <div class="mt-5">
+                <h4>Turbitidy: [NTU units]</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Turbitidy</mat-label>
+                    <input type="number" matInput formControlName="turbidity">
+                </mat-form-field>
+            </div>
+            <!-- Temperature -->
+            <div class="mt-2">
+                <h4>Temperature: [*K]</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Temp.</mat-label>
+                    <input type="number" matInput formControlName="temp">
+                </mat-form-field>
+            </div>
+            <!-- Color -->
+            <div class="mt-2">
+                <h4>Color: [TCU units]</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Color</mat-label>
+                    <input type="number" matInput formControlName="color">
+                </mat-form-field>
+            </div>
+
+            <!-- Total Dissolved Solids -->
+            <div class="mt-2">
+                <h4>TDS: [Total Dissolved Solids] [mg/L Units]</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>TDS</mat-label>
+                    <input type="number" matInput formControlName="tds">
+                </mat-form-field>
+            </div>
+
+            <!-- Electrical Conductivity -->
+            <div class="mt-2">
+                <h4>Electrical Conductivity: [S/m Units]</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>[S/m]</mat-label>
+                    <input type="number" matInput formControlName="electCond">
+                </mat-form-field>
+            </div>
+            
+            <p class="mt-5 lead fw-bold">CHEMICAL PARAMETERS</p>
+
+            <!-- pH Value -->
+            <div class="mt-2">
+                <h4>pH</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>pH Value</mat-label>
+                    <input type="number" matInput formControlName="pH">
+                </mat-form-field>
+            </div>
+
+            <!-- Chloride Content -->
+            <div class="mt-2">
+                <h4>Chloride Content: [mg/L]</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>in mg/L</mat-label>
+                    <input type="number" matInput formControlName="chloride">
+                </mat-form-field>
+            </div>
+
+            <!-- Fluoride Content -->
+            <div class="mt-2">
+                <h4>Fluoride Content: [mg/L]</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>in mg/L</mat-label>
+                    <input type="number" matInput formControlName="fluoride">
+                </mat-form-field>
+            </div>
+
+            <!-- Hardness of Water -->
+            <div class="mt-2">
+                <h4>Hardness of Water: (Calcium Carbonate) [mg/L units]</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Hardness</mat-label>
+                    <input type="number" matInput formControlName="hardness">
+                </mat-form-field>
+            </div>
+
+            <!-- Dissolved Oxygen -->
+            <div class="mt-2">
+                <h4>Dissolved Oxygen: [mg/L units]</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Dissolved O2</mat-label>
+                    <input type="number" matInput formControlName="dissolvedo2">
+                </mat-form-field>
+            </div>
+    
+            <!-- <div class="">
+                <a class="lead" routerLink="/signUp" style="number-decoration: none;">Create New Account?</a>
+            </div> -->
+
+            <div class="submit text-center mt-5 pt-5">
+                <input type="button" value="Submit" [disabled]="fg.invalid" class="btn btn-light btn-xxl" (click) = "onSubmit($event)">
+            </div>
+        </form>
+    </div>
+</div>

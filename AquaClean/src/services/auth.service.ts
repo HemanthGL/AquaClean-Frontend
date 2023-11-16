@@ -123,7 +123,7 @@ export class AuthService {
   }
 
   getSupervisor(companyId: string, superiorId: string, supervisorId: string): Observable<any>{
-    return this.http.get('http://localhost:8080/v1/company/'+companyId+'/superior/'+superiorId+'/supervisor/'+superiorId);
+    return this.http.get('http://localhost:8080/v1/company/'+companyId+'/superior/'+superiorId+'/supervisor/'+ supervisorId);
   }
 
   setLogInFalse(){
