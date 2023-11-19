@@ -45,6 +45,9 @@ export class NavbarComponent  {
   
   setLogOut(){
     localStorage.setItem('logIn', "false")
+    localStorage.removeItem('role')
+    localStorage.removeItem('cred');
+    localStorage.removeItem('companycred')
     this.authServe.setLogInFalse();
   }
 }

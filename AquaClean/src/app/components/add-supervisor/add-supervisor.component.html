@@ -1,0 +1,68 @@
+<div class="container-fluid d-flex justify-content-center align-items-center bg-dark text-light">
+    <div class="backg pt-5 ps-4 pe-4 pb-5 text-center w-50 mt-5 rounded">
+        <p class="display-4 text-light">Onboard Supervisor</p>
+        <form [formGroup]="fg" class="mt-5 ms-4 me-4 text-start">
+
+            <p class="mt-5 lead fw-bold">PLANT DETAILS</p>
+
+             <!-- Plant Name -->
+             <div class="mt-5">
+                <h4>Plant Name</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Listed Plant Name</mat-label>
+                    <input type="text" matInput formControlName="plantName">
+                </mat-form-field>
+            </div>
+            <!-- Plant ID -->
+            <div class="mt-2">
+                <h4>Plant ID</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Unique Plant ID</mat-label>
+                    <input type="text" matInput formControlName="plantId">
+                </mat-form-field>
+            </div>
+
+            <p class="mt-5 lead fw-bold">EMPLOYEE DETAILS</p>
+
+            <!-- Supervisor Full Name -->
+            <div class="mt-5">
+                <h4>Supervisor Full Name</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Full Name</mat-label>
+                    <input type="text" matInput formControlName="supervisorFullName">
+                </mat-form-field>
+            </div>
+
+            <!-- Employee E-Mail -->
+            <div class="mt-2">
+                <h4>Employee E-Mail</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>E-Mail of Plant Supervisor</mat-label>
+                    <input type="text" matInput formControlName="emailId">
+                </mat-form-field>
+            </div>
+
+            <!-- Employee ID -->
+            <div class="mt-2">
+                <h4>Supervisor ID</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Employee ID of Plant Supervisor</mat-label>
+                    <input type="text" matInput formControlName="employeeId">
+                </mat-form-field>
+            </div>
+
+            <!-- Password -->
+            <div class="mt-2">
+                <h4>Password</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Password for Supervisor Account</mat-label>
+                    <input type="password" matInput formControlName="password">
+                </mat-form-field>
+            </div>
+
+            <div class="submit text-center mt-5 pt-5">
+                <input type="button" value="Submit" [disabled]="fg.invalid" class="btn btn-light btn-xxl" (click) = "onSubmit($event)">
+            </div>
+        </form>
+    </div>
+</div>

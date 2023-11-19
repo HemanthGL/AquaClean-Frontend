@@ -1,0 +1,50 @@
+
+<div class="container-fluid d-flex justify-content-center align-items-center bg-dark text-light">
+    <div class="backg pt-5 ps-4 pe-4 pb-5 text-center w-50 mt-5 rounded">
+        <p class="display-4 text-light">Onboard Superior</p>
+        <form [formGroup]="fg" class="mt-5 ms-4 me-4 text-start">
+
+            <p class="mt-5 lead fw-bold">EMPLOYEE DETAILS</p>
+
+            <!-- Superior Full Name -->
+            <div class="mt-5">
+                <h4>Superior Full Name</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Full Name</mat-label>
+                    <input type="text" matInput formControlName="superiorFullName">
+                </mat-form-field>
+            </div>
+
+            <!-- Employee ID -->
+            <div class="mt-2">
+                <h4>Superior ID</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Employee ID of Superior</mat-label>
+                    <input type="text" matInput formControlName="employeeId">
+                </mat-form-field>
+            </div>
+
+            <!-- Employee E-mail -->
+            <div class="mt-2">
+                <h4>Employee E-Mail</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>E-mail of Superior</mat-label>
+                    <input type="text" matInput formControlName="emailId">
+                </mat-form-field>
+            </div>
+
+            <!-- Password -->
+            <div class="mt-2">
+                <h4>Password</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Password for Supervisor Account</mat-label>
+                    <input type="password" matInput formControlName="password">
+                </mat-form-field>
+            </div>
+
+            <div class="submit text-center mt-5 pt-5">
+                <input type="button" value="Add Superior" [disabled]="fg.invalid" class="btn btn-light btn-xxl" (click) = "onSubmit($event)">
+            </div>
+        </form>
+    </div>
+</div>

@@ -140,13 +140,6 @@ export class LoginformComponent {
     let adminLogIn: boolean= this.authServe.adminLogInAttempt(this.fg.controls['adminId'].value, this.fg.controls['password'].value);
 
     console.log('calling admin login')
-
-    if (adminLogIn){
-      console.log('setting status var')
-      this.authServe.setLogInFalse();
-      this.authServe.setLogInTrue()
-      this.authServe.userLogIn.isAdmin = true;
-    }
   }
 
   handleSuperiorLogIn(){

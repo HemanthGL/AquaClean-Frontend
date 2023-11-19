@@ -1,0 +1,16 @@
+<main class="container-fluid mt-5 ms-5 me-5 d-flex flex-wrap justify-content-evenly gap-5">
+
+  <mat-card *ngFor="let item of superiors" class="example-card" style="max-width: 30rem;">
+      <mat-card-header>
+        <mat-card-title>{{item.superiorFullName}}</mat-card-title>
+        <mat-card-subtitle>{{item.employeeId}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="mt-4">
+        <p class="lead">No. of Supervisors Handling: {{item.supervisors!.length}}</p>
+        <p class="lead mt-2">Email: {{item.emailId}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+      </mat-card-actions>
+    </mat-card>
+
+</main>

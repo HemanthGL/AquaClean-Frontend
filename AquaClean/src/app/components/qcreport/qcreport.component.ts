@@ -107,7 +107,7 @@ export class QCReportComponent {
       dissolvedo2: this.fg.controls['dissolvedo2'].value
     }
 
-    let submittedPVisit: IPlantVisit = this.plantVisit.postPlantVisit(obj);
+    let submittedPVisit: string = this.plantVisit.postPlantVisit(obj);
     
     // switch(this.fg.controls['role'].value){
     //   case 'Admin':

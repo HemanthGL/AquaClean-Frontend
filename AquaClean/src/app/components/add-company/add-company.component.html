@@ -1,0 +1,41 @@
+
+<div class="container-fluid d-flex justify-content-center align-items-center bg-dark text-light">
+    <div class="backg pt-5 ps-4 pe-4 pb-5 text-center w-50 mt-5 rounded">
+        <p class="display-4 text-light">Onboard Company</p>
+        <form [formGroup]="fg" class="mt-5 ms-4 me-4 text-start">
+
+            <p class="mt-5 lead fw-bold">COMPANY DETAILS</p>
+
+            <!-- Company Name -->
+            <div class="mt-5">
+                <h4>Company Name</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Name</mat-label>
+                    <input type="text" matInput formControlName="companyUserName">
+                </mat-form-field>
+            </div>
+
+            <!-- Company ID -->
+            <div class="mt-2">
+                <h4>Company ID</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Company ID</mat-label>
+                    <input type="text" matInput formControlName="companyId">
+                </mat-form-field>
+            </div>
+
+            <!-- Password -->
+            <div class="mt-2">
+                <h4>Password</h4>
+                <mat-form-field style="width: 42vw">
+                    <mat-label>Password for Client Account</mat-label>
+                    <input type="password" matInput formControlName="password">
+                </mat-form-field>
+            </div>
+
+            <div class="submit text-center mt-5 pt-5">
+                <input type="button" value="Add Client" [disabled]="fg.invalid" class="btn btn-light btn-xxl" (click) = "onSubmit($event)">
+            </div>
+        </form>
+    </div>
+</div>

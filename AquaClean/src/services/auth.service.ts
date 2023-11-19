@@ -15,7 +15,10 @@ export class AuthService {
     isSuperior: false,
     isSupervisor: false,
     isCompany: false,
-    isAdmin: false
+    isAdmin: false,
+    role: '',
+    companycred: '',
+    cred: '',
   }
 
   isLogin: boolean = false;
@@ -28,7 +31,6 @@ export class AuthService {
     this.getCompany(companyId).subscribe((data) => {
       company = data;
       console.log('retrieved company is')
-      console.log(company);
       
       if (!company){
         alert('No Such company present!!')
@@ -36,11 +38,12 @@ export class AuthService {
       }
       
       if (company.password == pwd){
-        this.setLogInFalse;
-        this.setLogInTrue()
+        this.setLogInFalse();
+        this.setLogInTrue('company', companyId)
         this.userLogIn.isCompany = true;
         console.log('setting log in as true')
         
+        this.userLogIn.companycred = companyId;
         return company;
       }
       
@@ -53,7 +56,7 @@ export class AuthService {
   adminLogInAttempt(adminId : string, password: string){
     if (adminId == 'admin' && password == 'admin'){
       this.setLogInFalse()
-      this.setLogInTrue();
+      this.setLogInTrue('admin', adminId);
       this.userLogIn.isAdmin = true;
       return true
     }
@@ -72,7 +75,9 @@ export class AuthService {
       }
       if (data.password == password){
         this.setLogInFalse();
-        this.setLogInTrue();
+        this.setLogInTrue('superior', superiorId);
+        localStorage.setItem('companycred', companyId);
+        this.userLogIn.companycred = companyId;
         this.userLogIn.isSuperior = true;
         console.log('setting superior Log In true')
 
@@ -98,7 +103,7 @@ export class AuthService {
       }
       if (supervisor.password == password){
         this.setLogInFalse();
-        this.setLogInTrue();
+        this.setLogInTrue('supervisor', supervisorId);
         this.userLogIn.isSupervisor = true;
         console.log('Supervisor Logged In')
 
@@ -115,15 +120,15 @@ export class AuthService {
 
 
   getCompany(companyId : string): Observable<any>{
-    return this.http.get('http://localhost:8080/v1/company/' + companyId)
+    return this.http.get('https://aquaclean-backend-production.up.railway.app/v1/company/' + companyId)
   }
 
   getSuperior(companyId: string, superiorId: string): Observable<any>{
-    return this.http.get('http://localhost:8080/v1/company/'+companyId+'/superior/'+superiorId);
+    return this.http.get('https://aquaclean-backend-production.up.railway.app/v1/company/'+companyId+'/superior/'+superiorId);
   }
 
   getSupervisor(companyId: string, superiorId: string, supervisorId: string): Observable<any>{
-    return this.http.get('http://localhost:8080/v1/company/'+companyId+'/superior/'+superiorId+'/supervisor/'+ supervisorId);
+    return this.http.get('https://aquaclean-backend-production.up.railway.app/v1/company/'+companyId+'/superior/'+superiorId+'/supervisor/'+ supervisorId);
   }
 
   setLogInFalse(){
@@ -131,11 +136,16 @@ export class AuthService {
     this.userLogIn.isCompany = false;
     this.userLogIn.isSuperior = false;
     this.userLogIn.isSupervisor = false;
+    this.userLogIn.role = '';
+    this.userLogIn.companycred = '';
+    this.userLogIn.cred = '';
     localStorage.setItem('logIn', "false");
   }
 
-  setLogInTrue(){
+  setLogInTrue(role: string, empId: string){
     console.log(' setting bool val as true')
     localStorage.setItem('logIn', "true");
+    localStorage.setItem('role', role);
+    localStorage.setItem('cred', empId);
   }
 }
